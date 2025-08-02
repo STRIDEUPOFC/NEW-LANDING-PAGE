@@ -106,3 +106,14 @@ body, html {
 .modal.open {
   display: flex;
 }
+.invisible-link {
+  position: absolute;
+  top: 88%;       /* ajuste a posição vertical */
+  left: 50%;      /* centraliza horizontalmente */
+  transform: translateX(-50%);
+  width: 240px;   /* largura do botão invisível */
+  height: 60px;   /* altura do botão invisível */
+  z-index: 15;
+  background: transparent;
+  cursor: pointer;
+}
