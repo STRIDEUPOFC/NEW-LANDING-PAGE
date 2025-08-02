@@ -48,21 +48,21 @@ body, html {
 /* Carrossel sobreposto */
 .carousel-overlay {
   position: absolute;
-  top: -150px; /* Ajuste para posicionar o carrossel na imagem 3 */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
+  top: -150px;
+  left: 0;
+  width: 100vw;
   overflow-x: auto;
   white-space: nowrap;
   display: flex;
   gap: 8px;
-  padding: 10px 0;
+  padding: 10px 12px; /* ou 0 se quiser colado mesmo */
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   z-index: 10;
-  background-color: rgba(255,255,255,0.05); /* leve fundo translúcido */
-  border-radius: 12px;
+  background-color: rgba(255,255,255,0.05);
+  border-radius: 0;
 }
+
 
 .carousel-overlay::-webkit-scrollbar {
   display: none;
