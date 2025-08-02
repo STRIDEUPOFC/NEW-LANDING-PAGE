@@ -106,3 +106,20 @@ body, html {
 .modal.open {
   display: flex;
 }
+.carousel-overlay-global {
+  position: absolute;
+  top: 1800px; /* ajuste esse valor até encaixar entre imagem 2 e 3 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  overflow-x: auto;
+  white-space: nowrap;
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
