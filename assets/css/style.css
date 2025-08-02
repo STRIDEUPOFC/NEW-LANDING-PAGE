@@ -1,3 +1,4 @@
+/* Reset geral */
 * {
   margin: 0;
   padding: 0;
@@ -8,24 +9,27 @@ body, html {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  font-family: sans-serif;
+  background-color: #000;
 }
 
+/* Imagens empilhadas */
 .landing-image {
   display: block;
   width: 100vw;
   height: auto;
 }
 
-/* container da imagem com vídeo por cima */
+/* Bloco com elementos sobrepostos (vídeo ou carrossel) */
 .image-block {
   position: relative;
   width: 100%;
 }
 
-/* vídeo flutuando sobre a imagem */
+/* VÍDEO SOBREPOSTO */
 .video-overlay {
   position: absolute;
-  top: 400px; /* ajuste aqui para encaixar no quadrado preto */
+  top: 160px; /* ajuste vertical */
   left: 50%;
   transform: translateX(-50%);
   width: 320px;
@@ -41,23 +45,27 @@ body, html {
   height: 100%;
 }
 
-
-.video-overlay iframe {
-  width: 100%;
-  height: 100%;
-}
-/* Carrossel de Clientes */
-.carousel-wrapper {
-  margin-top: 40px;
-  padding: 20px 0;
-}
-
-.carousel-container {
+/* CARROSSEL SOBREPOSTO */
+.carousel-overlay {
+  position: absolute;
+  bottom: 40px; /* ajuste vertical em relação à imagem 3 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
   overflow-x: auto;
   white-space: nowrap;
-  padding: 0 20px;
+  display: flex;
+  gap: 8px;
+  padding: 10px;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.05); /* opcional */
+  border-radius: 12px;
+}
+
+.carousel-overlay::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel-inner {
@@ -73,15 +81,9 @@ body, html {
   flex-shrink: 0;
   scroll-snap-align: start;
   cursor: pointer;
-  display: block;
 }
 
-/* Ocultar scrollbar no Chrome */
-.carousel-container::-webkit-scrollbar {
-  display: none;
-}
-
-/* Modal */
+/* MODAL DE IMAGEM */
 .modal {
   display: none;
   position: fixed;
