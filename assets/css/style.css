@@ -48,6 +48,7 @@ body, html {
 /* CARROSSEL SOBREPOSTO */
 .carousel-overlay {
   position: absolute;
+  top: 900px
   bottom: 40px; /* ajuste vertical em relação à imagem 3 */
   left: 50%;
   transform: translateX(-50%);
@@ -60,7 +61,6 @@ body, html {
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   z-index: 10;
-  background-color: rgba(255, 255, 255, 0.05); /* opcional */
   border-radius: 12px;
 }
 
