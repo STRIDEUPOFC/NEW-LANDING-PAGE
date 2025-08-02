@@ -108,12 +108,14 @@ body, html {
 }
 .invisible-link {
   position: absolute;
-  top: 88%;       /* ajuste a posição vertical */
-  left: 50%;      /* centraliza horizontalmente */
+  top: 88%;       /* ajuste vertical conforme o botão */
+  left: 50%;      /* centralizado */
   transform: translateX(-50%);
-  width: 240px;   /* largura do botão invisível */
-  height: 60px;   /* altura do botão invisível */
+  width: 240px;
+  height: 60px;
   z-index: 15;
-  background: transparent;
+  background: red;     /* VISÍVEL! */
+  opacity: 0.5;         /* meia transparência pra testar */
   cursor: pointer;
+  border: 2px solid white;
 }
