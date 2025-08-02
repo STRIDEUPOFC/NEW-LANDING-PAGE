@@ -24,22 +24,22 @@
   <!-- Imagem 2 -->
   <img src="assets/img/2.png" alt="Seção 2" class="landing-image" />
 
-  <!-- Imagem 3 -->
-  <img src="assets/img/3.jpeg" alt="Seção 3" class="landing-image" />
+  <!-- Imagem 3 com carrossel sobreposto -->
+  <div class="image-block">
+    <img src="assets/img/3.jpeg" alt="Seção 3" class="landing-image" />
 
-  <!-- Carrossel flutuando entre imagem 2 e 3 -->
-  <div class="carousel-overlay-global" onwheel="this.scrollLeft += event.deltaY;">
-    <div class="carousel-inner">
-      <img src="assets/img/IMG_9685.jpeg" alt="Cliente 1" class="carousel-img">
-      <img src="assets/img/IMG_9686.jpeg" alt="Cliente 2" class="carousel-img">
-      <img src="assets/img/IMG_9685.jpeg" alt="Cliente 3" class="carousel-img">
-      <!-- Adicione mais se quiser -->
+    <div class="carousel-overlay" onwheel="this.scrollLeft += event.deltaY;">
+      <div class="carousel-inner">
+        <img src="assets/img/IMG_9685.jpeg" alt="Cliente 1" class="carousel-img" />
+        <img src="assets/img/IMG_9686.jpeg" alt="Cliente 2" class="carousel-img" />
+        <img src="assets/img/IMG_9685.jpeg" alt="Cliente 3" class="carousel-img" />
+      </div>
     </div>
   </div>
 
   <!-- Modal de imagem -->
   <div id="imgModal" class="modal" onclick="closeModal()">
-    <img id="modalImg" class="modal-content">
+    <img id="modalImg" class="modal-content" />
   </div>
 
   <!-- Script do modal -->
@@ -47,7 +47,7 @@
     const modal = document.getElementById("imgModal");
     const modalImg = document.getElementById("modalImg");
 
-    document.querySelectorAll(".carousel-img").forEach(img => {
+    document.querySelectorAll(".carousel-img").forEach((img) => {
       img.addEventListener("click", () => {
         modalImg.src = img.src;
         modal.classList.add("open");
