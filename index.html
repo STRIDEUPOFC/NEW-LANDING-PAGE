@@ -7,11 +7,12 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <div class="page-wrapper">
+  <!-- container para imagem + vídeo sobreposto -->
+  <div class="image-block">
     <img src="assets/img/1.png" alt="Seção 1" class="landing-image" />
 
-    <!-- VÍDEO DO YOUTUBE SOBRE IMAGEM -->
-    <div class="video-container">
+    <!-- vídeo flutuando em cima da imagem -->
+    <div class="video-overlay">
       <iframe
         src="https://www.youtube.com/embed/dQw4w9WgXcQ"
         title="YouTube video"
@@ -19,9 +20,11 @@
         allowfullscreen
       ></iframe>
     </div>
-
-    <img src="assets/img/2.png" alt="Seção 2" class="landing-image" />
-    <img src="assets/img/3.jpeg" alt="Seção 3" class="landing-image" />
   </div>
+
+  <!-- as outras imagens seguem normalmente -->
+  <img src="assets/img/2.png" alt="Seção 2" class="landing-image" />
+  <img src="assets/img/3.jpeg" alt="Seção 3" class="landing-image" />
 </body>
 </html>
+
