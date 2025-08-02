@@ -7,11 +7,9 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <!-- container para imagem + vídeo sobreposto -->
+  <!-- Imagem 1 + vídeo sobreposto -->
   <div class="image-block">
     <img src="assets/img/1.png" alt="Seção 1" class="landing-image" />
-
-    <!-- vídeo flutuando em cima da imagem -->
     <div class="video-overlay">
       <iframe
         src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -22,9 +20,42 @@
     </div>
   </div>
 
-  <!-- as outras imagens seguem normalmente -->
+  <!-- Outras imagens -->
   <img src="assets/img/2.png" alt="Seção 2" class="landing-image" />
   <img src="assets/img/3.jpeg" alt="Seção 3" class="landing-image" />
+
+  <!-- Carrossel de Clientes -->
+  <div class="carousel-wrapper">
+    <div class="carousel-container" onwheel="this.scrollLeft += event.deltaY;">
+      <div class="carousel-inner">
+        <img src="assets/img/IMG_9685.jpeg" alt="Cliente 1" class="carousel-img">
+        <img src="assets/img/IMG_9686.jpeg" alt="Cliente 2" class="carousel-img">
+        <img src="assets/img/IMG_9685.jpeg" alt="Cliente 3" class="carousel-img">
+        <!-- Adicione mais imagens se quiser -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="imgModal" class="modal" onclick="closeModal()">
+    <img id="modalImg" class="modal-content">
+  </div>
+
+  <!-- Script -->
+  <script>
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+
+    document.querySelectorAll(".carousel-img").forEach(img => {
+      img.addEventListener("click", () => {
+        modalImg.src = img.src;
+        modal.classList.add("open");
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove("open");
+    }
+  </script>
 </body>
 </html>
-
