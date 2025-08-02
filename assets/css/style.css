@@ -13,29 +13,29 @@ body, html {
   background-color: #000;
 }
 
-/* Imagens empilhadas */
+/* Container para imagem com elementos sobrepostos */
+.image-block {
+  position: relative;
+  width: 100%;
+}
+
+/* Imagens da landing */
 .landing-image {
   display: block;
   width: 100vw;
   height: auto;
 }
 
-/* Bloco com elementos sobrepostos (vídeo ou carrossel) */
-.image-block {
-  position: relative;
-  width: 100%;
-}
-
-/* VÍDEO SOBREPOSTO */
+/* Vídeo sobreposto */
 .video-overlay {
   position: absolute;
-  top: 400px; /* ajuste vertical */
+  top: 400px; /* Ajuste para posição vertical do vídeo */
   left: 50%;
   transform: translateX(-50%);
   width: 320px;
   height: 180px;
   z-index: 10;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -45,10 +45,10 @@ body, html {
   height: 100%;
 }
 
-/* CARROSSEL SOBREPOSTO */
+/* Carrossel sobreposto */
 .carousel-overlay {
   position: absolute;
-  bottom: 40px; /* ajuste vertical em relação à imagem 3 */
+  top: 50px; /* Ajuste para posicionar o carrossel na imagem 3 */
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
@@ -56,10 +56,11 @@ body, html {
   white-space: nowrap;
   display: flex;
   gap: 8px;
-  padding: 10px;
+  padding: 10px 0;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   z-index: 10;
+  background-color: rgba(255,255,255,0.05); /* leve fundo translúcido */
   border-radius: 12px;
 }
 
@@ -82,7 +83,7 @@ body, html {
   cursor: pointer;
 }
 
-/* MODAL DE IMAGEM */
+/* Modal de visualização */
 .modal {
   display: none;
   position: fixed;
@@ -91,7 +92,7 @@ body, html {
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0,0,0,0.85);
   justify-content: center;
   align-items: center;
 }
@@ -105,21 +106,4 @@ body, html {
 
 .modal.open {
   display: flex;
-}
-.carousel-overlay-global {
-  position: absolute;
-  top: 600px; /* ajuste esse valor até encaixar entre imagem 2 e 3 */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  overflow-x: auto;
-  white-space: nowrap;
-  display: flex;
-  gap: 8px;
-  padding: 10px;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  z-index: 20;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
 }
