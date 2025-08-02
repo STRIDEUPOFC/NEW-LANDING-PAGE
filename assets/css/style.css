@@ -108,7 +108,7 @@ body, html {
 }
 .invisible-link {
   position: absolute;
-  top: 37%;       /* ajuste vertical conforme o botão */
+  top: 34%;       /* ajuste vertical conforme o botão */
   left: 50%;      /* centralizado */
   transform: translateX(-50%);
   width: 240px;
