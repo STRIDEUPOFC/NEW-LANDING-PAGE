@@ -108,7 +108,7 @@ body, html {
 }
 .carousel-overlay-global {
   position: absolute;
-  top: 1800px; /* ajuste esse valor até encaixar entre imagem 2 e 3 */
+  top: 600px; /* ajuste esse valor até encaixar entre imagem 2 e 3 */
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
