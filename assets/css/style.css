@@ -21,11 +21,9 @@ body, html {
 
 /* Imagens da landing */
 .landing-image {
+  display: block;
   width: 100vw;
-  min-height: 170vh;
-  object-fit: contain;   /* não corta nada */
-  background-color: #000; /* preenche as bordas se sobrar espaço */
-}
+  height: auto;
 
 
 /* Vídeo sobreposto */
