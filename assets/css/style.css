@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -12,26 +11,38 @@ body, html {
 }
 
 .landing-image {
-  display: block; /* elimina espaçamento inline */
-  width: 100vw; /* ocupa 100% da largura da viewport */
-  height: auto; /* mantém proporção */
-  object-fit: cover; /* garante que preencha horizontalmente */
+  display: block;
+  width: 100vw;
+  height: auto;
 }
-.video-container {
+
+/* container da imagem com vídeo por cima */
+.image-block {
+  position: relative;
+  width: 100%;
+}
+
+/* vídeo flutuando sobre a imagem */
+.video-overlay {
   position: absolute;
-  top: 180px;  /* ajuste pra mover verticalmente */
+  top: 160px; /* ajuste aqui para encaixar no quadrado preto */
   left: 50%;
   transform: translateX(-50%);
-  width: 320px;  /* largura do vídeo */
-  height: 180px; /* altura proporcional (16:9) */
+  width: 320px;
+  height: 180px;
   z-index: 10;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
-/* Responsivo opcional */
-.video-container iframe {
+.video-overlay iframe {
+  width: 100%;
+  height: 100%;
+}
+
+
+.video-overlay iframe {
   width: 100%;
   height: 100%;
 }
