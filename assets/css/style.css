@@ -48,7 +48,6 @@ body, html {
 /* CARROSSEL SOBREPOSTO */
 .carousel-overlay {
   position: absolute;
-  top: 700px
   bottom: 40px; /* ajuste vertical em relação à imagem 3 */
   left: 50%;
   transform: translateX(-50%);
