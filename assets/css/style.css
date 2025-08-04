@@ -128,4 +128,8 @@ img {
   user-select: none;
   pointer-events: none;
 }
+body {
+  overscroll-behavior: none; /* Evita aquele bounce no topo no mobile */
+  touch-action: manipulation; /* Restringe ações de toque, como duplo clique e arrastar */
+}
 
