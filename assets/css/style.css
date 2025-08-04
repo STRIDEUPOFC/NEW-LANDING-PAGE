@@ -19,12 +19,29 @@ body, html {
   width: 100%;
 }
 
-/* Imagens da landing */
+/* Substituindo <img> por divs com background */
 .landing-image {
-  display: block;
   width: 100vw;
-  height: auto;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+/* Cada fundo */
+.bg-img-1 {
+  background-image: url('../img/1.png');
+}
+
+.bg-img-2 {
+  background-image: url('../img/2.png');
+}
+
+.bg-img-3 {
+  background-image: url('../img/3.jpeg');
+}
+
 
 /* Vídeo sobreposto */
 .video-overlay {
