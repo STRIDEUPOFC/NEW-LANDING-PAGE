@@ -24,6 +24,9 @@ body, html {
   display: block;
   width: 100vw;
   height: auto;
+   -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
 }
 
 /* Vídeo sobreposto */
