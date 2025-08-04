@@ -4,17 +4,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-.fixed-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('assets/img/1.png');
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-}
 
 body, html {
   width: 100%;
@@ -22,38 +11,59 @@ body, html {
   overflow-x: hidden;
   font-family: sans-serif;
   background-color: #000;
+
+  overscroll-behavior: none;
+  touch-action: manipulation;
 }
 
-/* Container para imagem com elementos sobrepostos */
-.image-block {
-  position: relative;
-  width: 100%;
-}
-
-/* Imagens da landing */
-.landing-image {
-  display: block;
+/* Imagem 1 fixa como <img> */
+.fixed-image {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
-  height: auto;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+}
+
+.fixed-image .landing-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
 }
 
 /* Vídeo sobreposto */
 .video-overlay {
   position: absolute;
-  top: 400px; /* Ajuste para posição vertical do vídeo */
+  top: 400px; /* Ajuste vertical do vídeo */
   left: 50%;
   transform: translateX(-50%);
   width: 320px;
   height: 180px;
   z-index: 10;
+  background: transparent;
   box-shadow: 0 0 20px rgba(0,0,0,0.6);
   border-radius: 10px;
   overflow: hidden;
 }
 
-.video-overlay iframe {
-  width: 100%;
-  height: 100%;
+/* Imagens da landing - só para imagens 2 e 3 */
+.landing-image {
+  display: block;
+  width: 100vw;
+  height: auto;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
 }
 
 /* Carrossel sobreposto */
@@ -66,13 +76,12 @@ body, html {
   white-space: nowrap;
   display: flex;
   gap: 8px;
-  padding: 10px 12px; /* ou 0 se quiser colado mesmo */
+  padding: 10px 12px;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   z-index: 10;
   border-radius: 0;
 }
-
 
 .carousel-overlay::-webkit-scrollbar {
   display: none;
@@ -91,6 +100,10 @@ body, html {
   flex-shrink: 0;
   scroll-snap-align: start;
   cursor: pointer;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 /* Modal de visualização */
@@ -117,6 +130,8 @@ body, html {
 .modal.open {
   display: flex;
 }
+
+/* Link invisível sobre imagem fixa */
 .invisible-link {
   position: absolute;
   top: 36%;
@@ -130,17 +145,3 @@ body, html {
   cursor: pointer;
   border: none;
 }
-img {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;
-  pointer-events: none;
-}
-body {
-  overscroll-behavior: none; /* Evita aquele bounce no topo no mobile */
-  touch-action: manipulation; /* Restringe ações de toque, como duplo clique e arrastar */
-}
-
