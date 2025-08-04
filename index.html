@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <!-- Imagem fixada como background -->
-  <div class="fixed-bg"></div>
+  <!-- Imagem 1 fixa com tag <img> -->
+  <div class="image-block fixed-image">
+    <img src="assets/img/1.png" alt="Seção 1" class="landing-image" />
 
-  <div class="conteudo-por-cima">
-    <!-- Vídeo sobreposto (antes era sobre imagem 1) -->
+    <!-- Vídeo sobreposto -->
     <div class="video-overlay">
       <iframe
         src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -21,29 +21,29 @@
       ></iframe>
     </div>
 
-    <!-- Botão invisível sobre o espaço da imagem fixa -->
+    <!-- Botão invisível sobre a imagem fixa -->
     <a href="https://strideupofc.myshopify.com/" class="invisible-link"></a>
+  </div>
 
-    <!-- Imagem 2 -->
-    <img src="assets/img/2.png" alt="Seção 2" class="landing-image" />
+  <!-- Imagem 2 -->
+  <img src="assets/img/2.png" alt="Seção 2" class="landing-image" />
 
-    <!-- Imagem 3 com carrossel sobreposto -->
-    <div class="image-block">
-      <img src="assets/img/3.jpeg" alt="Seção 3" class="landing-image" />
+  <!-- Imagem 3 com carrossel sobreposto -->
+  <div class="image-block">
+    <img src="assets/img/3.jpeg" alt="Seção 3" class="landing-image" />
 
-      <div class="carousel-overlay" onwheel="this.scrollLeft += event.deltaY;">
-        <div class="carousel-inner">
-          <img src="assets/img/IMG_1095.jpeg" alt="Cliente 1" class="carousel-img" />
-          <img src="assets/img/IMG_9686.jpeg" alt="Cliente 2" class="carousel-img" />
-          <img src="assets/img/IMG_9685.jpeg" alt="Cliente 3" class="carousel-img" />
-        </div>
+    <div class="carousel-overlay" onwheel="this.scrollLeft += event.deltaY;">
+      <div class="carousel-inner">
+        <img src="assets/img/IMG_1095.jpeg" alt="Cliente 1" class="carousel-img" />
+        <img src="assets/img/IMG_9686.jpeg" alt="Cliente 2" class="carousel-img" />
+        <img src="assets/img/IMG_9685.jpeg" alt="Cliente 3" class="carousel-img" />
       </div>
     </div>
+  </div>
 
-    <!-- Modal de imagem -->
-    <div id="imgModal" class="modal" onclick="closeModal()">
-      <img id="modalImg" class="modal-content" />
-    </div>
+  <!-- Modal de imagem -->
+  <div id="imgModal" class="modal" onclick="closeModal()">
+    <img id="modalImg" class="modal-content" />
   </div>
 
   <!-- Script do modal -->
