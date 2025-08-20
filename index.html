@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Landing Page</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Landing Page</title>
+<link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <!-- Imagem 1 com vídeo sobreposto -->
- <div class="image-block">
-  <img src="assets/img/1.png" alt="Seção 1" class="landing-image" draggable="false" />
 
-  <div class="video-overlay">
-    <iframe
-      src="https://www.youtube.com/embed/n3UFlZcl1Ik"
-      title="YouTube video"
-      frameborder="0"
-      allowfullscreen
-    ></iframe>
-  </div>
-
-  <!-- Botão invisível sobre a imagem 1 -->
-  <a href="https://strideupofc.myshopify.com/" class="invisible-link"></a>
+<!-- Loader -->
+<div id="loader">
+  <div class="spinner"></div>
+  <p>Carregando...</p>
 </div>
 
+<!-- CONTEÚDO PRINCIPAL -->
+<div id="conteudo" style="display: none;">
+
+  <!-- Imagem 1 com vídeo sobreposto -->
+  <div class="image-block">
+    <img src="assets/img/1.png" alt="Seção 1" class="landing-image" draggable="false" />
+
+    <div class="video-overlay">
+      <iframe
+        src="https://www.youtube.com/embed/n3UFlZcl1Ik"
+        title="YouTube video"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- Botão invisível sobre a imagem 1 -->
+    <a href="https://strideupofc.myshopify.com/" class="invisible-link"></a>
+  </div>
 
   <!-- Imagem 2 -->
-  <img src="assets/img/2.png" alt="Seção 2" class="landing-image"  draggable="false"/>
+  <img src="assets/img/2.png" alt="Seção 2" class="landing-image" draggable="false"/>
 
   <!-- Imagem 3 com carrossel sobreposto -->
   <div class="image-block">
@@ -46,21 +55,32 @@
     <img id="modalImg" class="modal-content" />
   </div>
 
-  <!-- Script do modal -->
-  <script>
-    const modal = document.getElementById("imgModal");
-    const modalImg = document.getElementById("modalImg");
+</div> <!-- fim do conteudo -->
 
-    document.querySelectorAll(".carousel-img").forEach((img) => {
-      img.addEventListener("click", () => {
-        modalImg.src = img.src;
-        modal.classList.add("open");
-      });
-    });
+<!-- Script do modal -->
+<script>
+const modal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
 
-    function closeModal() {
-      modal.classList.remove("open");
-    }
-  </script>
+document.querySelectorAll(".carousel-img").forEach((img) => {
+  img.addEventListener("click", () => {
+    modalImg.src = img.src;
+    modal.classList.add("open");
+  });
+});
+
+function closeModal() {
+  modal.classList.remove("open");
+}
+
+// Loader: segura 2 segundos
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("conteudo").style.display = "block";
+  }, 2000);
+});
+</script>
+
 </body>
 </html>
