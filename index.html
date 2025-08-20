@@ -73,14 +73,14 @@ function closeModal() {
   modal.classList.remove("open");
 }
 
-// Loader: segura 2 segundos
-window.addEventListener("load", () => {
+// Loader: 2 segundos cravados (não espera imagens)
+document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     document.getElementById("loader").style.display = "none";
     document.getElementById("conteudo").style.display = "block";
   }, 2000);
 });
-</script>
+
 
 </body>
 </html>
