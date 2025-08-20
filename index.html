@@ -73,13 +73,17 @@ function closeModal() {
   modal.classList.remove("open");
 }
 
-// Loader: 2 segundos cravados (não espera imagens)
+// Loader: 2 segundos cravados
 document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("loader");
+  const conteudo = document.getElementById("conteudo");
+
   setTimeout(() => {
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("conteudo").style.display = "block";
+    loader.style.display = "none";
+    conteudo.style.display = "block";
   }, 2000);
 });
+
 
 
 </body>
