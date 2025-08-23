@@ -19,28 +19,13 @@
     <div class="image-block">
       <img src="assets/img/1.png" alt="Seção 1" class="landing-image" draggable="false" />
 
-<div class="video-overlay" style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
-  <!-- Thumb como background -->
-  <div 
-    id="thumb" 
-    style="
-      background: url('https://img.youtube.com/vi/ZDUS4qrGGaQ/maxresdefault.jpg') center center / cover no-repeat;
-      position: absolute; 
-      top: 0; left: 0; 
-      width: 100%; height: 100%; 
-      cursor: pointer;
-    "
-    onclick="this.style.display='none'; document.getElementById('ytplayer').style.display='block';">
-  </div>
-
-  <!-- Player do YouTube escondido -->
+<div class="video-overlay">
   <iframe
-    id="ytplayer"
-    src="https://www.youtube.com/embed/ZDUS4qrGGaQ"
+    src="https://www.youtube.com/embed/ZDUS4qrGGaQ?rel=0&modestbranding=1"
     title="YouTube video"
     frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen
-    style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
   ></iframe>
 </div>
 
