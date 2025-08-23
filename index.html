@@ -19,14 +19,25 @@
     <div class="image-block">
       <img src="assets/img/1.png" alt="Seção 1" class="landing-image" draggable="false" />
 
-<div class="video-overlay">
+<div class="video-overlay" style="position: relative; max-width: 100%; height: auto;">
+  <!-- Thumb em alta -->
+  <img 
+    src="https://img.youtube.com/vi/ZDUS4qrGGaQ/maxresdefault.jpg" 
+    alt="Capa do vídeo StrideUP" 
+    style="width: 100%; height: auto; cursor: pointer;" 
+    onclick="this.style.display='none'; this.nextElementSibling.style.display='block'"
+  >
+  
+  <!-- Player do YouTube escondido até clicar -->
   <iframe
     src="https://www.youtube.com/embed/ZDUS4qrGGaQ"
     title="YouTube video"
     frameborder="0"
     allowfullscreen
+    style="display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0;"
   ></iframe>
 </div>
+
 
 
       <!-- Botão invisível -->
