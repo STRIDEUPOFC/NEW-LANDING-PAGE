@@ -127,9 +127,9 @@ body, html {
 
 /* cada um com um top diferente */
 .invisible-link   { top: 45%; height: 60px; }
-.invisible-youtube{ top: 57%; }
+.invisible-youtube{ top: 67%; }
 .invisible-insta  { top: 77%; }
-.invisible-whats  { top: 87%; }
+.invisible-whats  { top: 90%; }
 
 
 
