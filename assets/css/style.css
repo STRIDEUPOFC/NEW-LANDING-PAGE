@@ -161,6 +161,13 @@ body, html {
   cursor: pointer;
   border: none;
 }
+.invisible-link,
+.invisible-youtube,
+.invisible-insta,
+.invisible-whats {
+  border: 2px solid red;
+}
+
 
 /* ============================= */
 /* LOADER                        */
