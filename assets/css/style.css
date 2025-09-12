@@ -135,7 +135,7 @@ body, html {
   cursor: pointer;
   border: none;
 }
-.invisible-instagram {
+.invisible-insta {
   position: fixed; /* ← troquei de absolute pra fixed */
   top: 67%;
   left: 50%;
@@ -148,7 +148,7 @@ body, html {
   cursor: pointer;
   border: none;
 }
-.invisible-whatsapp {
+.invisible-whats {
   position: fixed; /* ← troquei de absolute pra fixed */
   top: 77%;
   left: 50%;
