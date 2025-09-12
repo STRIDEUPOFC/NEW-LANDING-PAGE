@@ -122,7 +122,19 @@ body, html {
   cursor: pointer;
   border: none;
 }
-
+.invisible-youtube {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 60px;
+  z-index: 15;
+  background: transparent;
+  opacity: 1;
+  cursor: pointer;
+  border: none;
+}
 /* ============================= */
 /* LOADER                        */
 /* ============================= */
