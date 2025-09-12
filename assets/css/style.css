@@ -109,64 +109,28 @@ body, html {
   display: flex;
 }
 
-.invisible-link {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 240px;
-  height: 60px;
-  z-index: 15;
-  background: transparent;
-  opacity: 1;
-  cursor: pointer;
-  border: none;
-}
-.invisible-youtube {
-  position: fixed; /* ← troquei de absolute pra fixed */
-  top: 57%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 240px;
-  height: 50px;
-  z-index: 15;
-  background: transparent;
-  opacity: 1;
-  cursor: pointer;
-  border: none;
-}
-.invisible-insta {
-  position: fixed; /* ← troquei de absolute pra fixed */
-  top: 67%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 240px;
-  height: 50px;
-  z-index: 15;
-  background: transparent;
-  opacity: 1;
-  cursor: pointer;
-  border: none;
-}
-.invisible-whats {
-  position: fixed; /* ← troquei de absolute pra fixed */
-  top: 77%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 240px;
-  height: 50px;
-  z-index: 15;
-  background: transparent;
-  opacity: 1;
-  cursor: pointer;
-  border: none;
-}
 .invisible-link,
 .invisible-youtube,
 .invisible-insta,
 .invisible-whats {
-  border: 2px solid red;
+  position: absolute; /* cola na imagem */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 50px;
+  z-index: 15;
+  background: transparent;
+  opacity: 1;
+  cursor: pointer;
+  border: 2px solid red; /* só pra debug, pode remover depois */
 }
+
+/* cada um com um top diferente */
+.invisible-link   { top: 45%; height: 60px; }
+.invisible-youtube{ top: 57%; }
+.invisible-insta  { top: 67%; }
+.invisible-whats  { top: 77%; }
+
 
 
 /* ============================= */
