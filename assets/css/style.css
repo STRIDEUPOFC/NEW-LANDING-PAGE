@@ -111,7 +111,7 @@ body, html {
 
 .invisible-link {
   position: absolute;
-  top: 43%;
+  top: 45%;
   left: 50%;
   transform: translateX(-50%);
   width: 240px;
@@ -128,7 +128,7 @@ body, html {
   left: 50%;
   transform: translateX(-50%);
   width: 240px;
-  height: 60px;
+  height: 50px;
   z-index: 15;
   background: transparent;
   opacity: 1;
