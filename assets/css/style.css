@@ -76,7 +76,7 @@ body, html {
 
 .carousel-img {
   width: 200px;
-  height: 285px;
+  height: 330px;
   object-fit: cover;
   border-radius: 12px;
   flex-shrink: 0;
