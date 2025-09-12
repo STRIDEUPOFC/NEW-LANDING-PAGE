@@ -32,7 +32,7 @@ body, html {
 /* Vídeo sobreposto */
 .video-overlay {
   position: absolute;
-  top: 600px; /* Ajuste para posição vertical do vídeo */
+  top: 580px; /* Ajuste para posição vertical do vídeo */
   left: 50%;
   transform: translateX(-50%);
   width: 320px;
