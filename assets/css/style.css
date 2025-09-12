@@ -111,7 +111,7 @@ body, html {
 
 .invisible-link {
   position: absolute;
-  top: 36%;
+  top: 43%;
   left: 50%;
   transform: translateX(-50%);
   width: 240px;
@@ -124,7 +124,7 @@ body, html {
 }
 .invisible-youtube {
   position: absolute;
-  top: 47%;
+  top: 57%;
   left: 50%;
   transform: translateX(-50%);
   width: 240px;
