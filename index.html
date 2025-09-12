@@ -21,10 +21,14 @@
 
 <div class="video-overlay">
   <!-- Thumb HD -->
-  <div id="thumb"
-       style="background: url('https://img.youtube.com/vi/ZDUS4qrGGaQ/maxresdefault.jpg') center center / cover no-repeat;
-              width: 100%; height: 100%; cursor: pointer;">
-  </div>
+<div id="thumb"
+     style="background: url('https://img.youtube.com/vi/ZDUS4qrGGaQ/maxresdefault.jpg') center center / cover no-repeat;
+            width: 100%; height: 100%; cursor: pointer; position: relative;">
+  <img src="assets/img/ICON.png" alt="Play" 
+       style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+              width: 64px; height: 64px; pointer-events: none;">
+</div>
+
 
   <!-- Player escondido -->
   <iframe
