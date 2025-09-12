@@ -122,7 +122,6 @@ body, html {
   background: transparent;
   opacity: 1;
   cursor: pointer;
-  border: 2px solid red; /* só pra debug, pode remover depois */
 }
 
 /* cada um com um top diferente */
