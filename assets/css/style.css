@@ -11,7 +11,7 @@ body, html {
 }
 
 .whatsapp-float {
-    position: fixed !important;;
+    position: fixed;
     bottom: 20px;
     right: 20px;
     display: flex;
@@ -27,7 +27,7 @@ body, html {
     font-size: 14px;
     font-weight: 600;
     transition: all 0.25s ease;
-    z-index: 9999 !important;;
+    z-index: 9999;
   }
 
   .whatsapp-float:hover {
