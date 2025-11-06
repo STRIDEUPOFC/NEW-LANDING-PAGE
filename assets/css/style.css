@@ -1,4 +1,16 @@
-  .whatsapp-float {
+/* GARANTE QUE O BOTÃO FIQUE ACIMA DE TUDO */
+body, html {
+  overflow-x: hidden;
+}
+
+.whatsapp-float {
+  position: fixed !important;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99999 !important;
+}
+
+.whatsapp-float {
     position: fixed !important;;
     bottom: 20px;
     right: 20px;
