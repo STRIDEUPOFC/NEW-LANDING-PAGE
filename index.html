@@ -75,6 +75,48 @@
       <img id="modalImg" class="modal-content" />
     </div>
   </div> <!-- fim do conteudo -->
+<!-- COLE ISTO ANTES DO </body> (FORA DE QUALQUER CONTAINER) -->
+<a href="https://wa.me/5500000000000" target="_blank" class="whatsapp-float" aria-label="Faça seu pedido por WhatsApp">
+  <img src="assets/img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+  <span class="whatsapp-text">faça seu pedido por aqui</span>
+</a>
+
+<style>
+  /* Garantir que fique acima de tudo e fixe na viewport */
+  .whatsapp-float {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform .18s ease, box-shadow .18s ease;
+    z-index: 2147483647 !important; /* max safe z-index */
+    pointer-events: auto;
+  }
+
+  .whatsapp-float:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.28); }
+
+  .whatsapp-icon { width: 28px; height: 28px; display: block; }
+
+  .whatsapp-text { white-space: nowrap; }
+
+  /* MOBILE: só ícone pra não atrapalhar */
+  @media (max-width: 600px) {
+    .whatsapp-float { padding: 10px; gap: 8px; bottom: 14px; right: 14px; font-size: 13px; }
+    .whatsapp-text { display: none; } /* esconde o texto no mobile */
+    .whatsapp-icon { width: 26px; height: 26px; }
+  }
+</style>
 
 
   <!-- Script -->
