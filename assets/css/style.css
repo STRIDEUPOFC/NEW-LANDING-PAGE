@@ -1,5 +1,5 @@
   .whatsapp-float {
-    position: fixed;
+    position: fixed !important;;
     bottom: 20px;
     right: 20px;
     display: flex;
@@ -15,7 +15,7 @@
     font-size: 14px;
     font-weight: 600;
     transition: all 0.25s ease;
-    z-index: 9999;
+    z-index: 9999 !important;;
   }
 
   .whatsapp-float:hover {
