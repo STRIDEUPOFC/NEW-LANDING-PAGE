@@ -69,43 +69,70 @@
       <img id="modalImg" class="modal-content" />
     </div>
   </div> <!-- fim do conteudo -->
-<!-- BOTÃO WHATSAPP SOMENTE PNG -->
-<a href="https://wa.me/5500000000000" target="_blank" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
+<!-- BOTÃO WHATSAPP FIXO -->
+<a href="https://wa.me/5500000000000" target="_blank" class="whatsapp-float">
   <img src="assets/img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+  <span class="whatsapp-text">faça seu pedido por aqui</span>
 </a>
 
 <style>
   .whatsapp-float {
-    position: fixed !important;
-    bottom: 25px !important;
-    right: 25px !important;
-    z-index: 2147483647 !important;
-    pointer-events: auto;
-    display: inline-block;
-    transition: transform .2s ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 50px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    z-index: 9999;
   }
 
   .whatsapp-float:hover {
-    transform: scale(1.08);
+    background: #1ebe5d;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.3);
   }
 
   .whatsapp-icon {
-    width: 85px;  /* aumenta o tamanho aqui */
-    height: 85px;
+    width: 42px;
+    height: 42px;
     display: block;
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.2));
+  }
+
+  .whatsapp-text {
+    white-space: nowrap;
   }
 
   @media (max-width: 600px) {
-    .whatsapp-icon {
-      width: 75px;  /* tamanho reduzido no celular */
-      height: 75px;
-    }
     .whatsapp-float {
-      bottom: 18px !important;
-      right: 18px !important;
+      padding: 12px 16px;
+      font-size: 13px;
+      gap: 10px;
+      bottom: 15px;
+      right: 15px;
+    }
+
+    .whatsapp-icon {
+      width: 42px;
+      height: 42px;
+    }
+
+    .whatsapp-text {
+      display: none; /* só o ícone no mobile */
     }
   }
 </style>
+
   <!-- Script -->
   <script>
     const modal = document.getElementById("imgModal");
