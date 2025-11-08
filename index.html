@@ -70,7 +70,7 @@
     </div>
   </div> <!-- fim do conteudo -->
 <!-- BOTÃO WHATSAPP FIXO -->
-<a href="https://wa.me/5567996540942" target="_blank" class="whatsapp-float">
+<a href="https://wa.me/5567996540942?text=Olá%20StrideUp,%20quero%20fazer%20meu%20pedido%20agora." target="_blank" class="whatsapp-float">
   <img src="assets/img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
   <span class="whatsapp-text">faça seu pedido por aqui</span>
 </a>
@@ -82,16 +82,16 @@
     right: 20px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     background: #25D366;
     color: #fff;
     text-decoration: none;
-    padding: 12px 18px;
-    border-radius: 50px;
+    padding: 15px 24px; /* AUMENTADO */
+    border-radius: 55px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px; /* AUMENTADO */
+    font-weight: 700; /* MAIS FORTE */
     transition: all 0.25s ease;
     z-index: 9999;
   }
@@ -102,8 +102,8 @@
   }
 
   .whatsapp-icon {
-    width: 28px;
-    height: 28px;
+    width: 32px; /* MAIOR */
+    height: 32px;
   }
 
   .whatsapp-text {
@@ -112,18 +112,19 @@
 
   @media (max-width: 600px) {
     .whatsapp-float {
-      padding: 10px 14px;
-      font-size: 13px;
-      gap: 8px;
+      padding: 12px 18px;
+      font-size: 14px;
+      gap: 10px;
       bottom: 15px;
       right: 15px;
     }
     .whatsapp-icon {
-      width: 24px;
-      height: 24px;
+      width: 28px;
+      height: 28px;
     }
   }
 </style>
+
 
   <!-- Script -->
   <script>
