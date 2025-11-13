@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Landing Page</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- ===========================
+       INTRO UP (substitui loader)
+       =========================== -->
   <style>
-    /* ======== INTRO ======== */
+    /* Intro: tela preta com logo expandindo */
     #intro {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background: #000;
       display: flex;
       align-items: center;
@@ -21,34 +23,40 @@
     }
 
     #intro img {
-      width: 120px;
+      width: 140px;
+      max-width: 40vw;
       opacity: 0;
-      animation: expandLogo 2s ease forwards;
+      animation: introExpand 2s cubic-bezier(.22,.9,.36,1) forwards;
+      will-change: transform, opacity;
     }
 
-    @keyframes expandLogo {
-      0% { opacity: 0; transform: scale(0.3); }
-      25% { opacity: 1; transform: scale(1); }
-      70% { opacity: 1; transform: scale(3); }
-      100% { opacity: 0; transform: scale(5); }
+    @keyframes introExpand {
+      0%   { opacity: 0; transform: scale(.25); }
+      25%  { opacity: 1; transform: scale(1); }
+      65%  { opacity: 1; transform: scale(3); }
+      100% { opacity: 0; transform: scale(4); }
     }
 
-    /* ======== CONTEÚDO PRINCIPAL ======== */
+    /* Fade do conteúdo após intro */
     #conteudo {
       opacity: 0;
-      transition: opacity 1.2s ease;
+      transition: opacity 1s ease;
     }
 
     #conteudo.mostrar {
       opacity: 1;
     }
+
+    #conteudo[data-hidden="true"] {
+      display: none !important;
+    }
   </style>
 </head>
-<body>
 
-  <!-- INTRO -->
-  <div id="intro">
-    <img src="assets/img/up-logo.png" alt="UP Logo">
+<body>
+  <!-- INTRO UP -->
+  <div id="intro" aria-hidden="true">
+    <img src="assets/img/up-logo.png" alt="UP Logo" draggable="false" />
   </div>
 
   <!-- CONTEÚDO PRINCIPAL -->
@@ -60,12 +68,13 @@
       <div class="video-overlay">
         <!-- Thumb HD -->
         <div id="thumb"
-             style="background: url('https://img.youtube.com/vi/EYYfj_U8FJs/maxresdefault.jpg') center center / cover no-repeat;
-                    width: 100%; height: 100%; cursor: pointer; position: relative;">
+            style="background: url('https://img.youtube.com/vi/EYYfj_U8FJs/maxresdefault.jpg') center center / cover no-repeat;
+                  width: 100%; height: 100%; cursor: pointer; position: relative;">
           <img src="assets/img/ICON.png" alt="Play" 
-               style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-                      width: 32px; height: 32px; pointer-events: none;">
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                    width: 32px; height: 32px; pointer-events: none;">
         </div>
+
         <!-- Player escondido -->
         <iframe
           id="ytplayer"
@@ -139,7 +148,14 @@
       transform: translateY(-2px);
     }
 
-    .whatsapp-icon { width: 32px; height: 32px; }
+    .whatsapp-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .whatsapp-text {
+      white-space: nowrap;
+    }
 
     @media (max-width: 600px) {
       .whatsapp-float {
@@ -156,37 +172,53 @@
     }
   </style>
 
+  <!-- SCRIPT GERAL -->
   <script>
-    // Modal do carrossel
+    // Modal de imagens
     const modal = document.getElementById("imgModal");
     const modalImg = document.getElementById("modalImg");
+
     document.querySelectorAll(".carousel-img").forEach((img) => {
       img.addEventListener("click", () => {
         modalImg.src = img.src;
         modal.classList.add("open");
       });
     });
-    function closeModal() { modal.classList.remove("open"); }
 
-    // Controle da intro + fade do conteúdo
-    window.addEventListener("load", () => {
-      const intro = document.getElementById("intro");
-      const conteudo = document.getElementById("conteudo");
+    function closeModal() {
+      modal.classList.remove("open");
+    }
 
-      // Após 2.1s remove a intro e mostra conteúdo
-      setTimeout(() => {
-        intro.style.transition = "opacity 0.6s ease";
-        intro.style.opacity = "0";
-        conteudo.classList.add("mostrar");
-        setTimeout(() => { intro.remove(); }, 800);
-      }, 2100);
-    });
-
-    // Thumb → vídeo
+    // Substitui a thumb pelo vídeo ao clicar
     document.getElementById('thumb').onclick = function() {
       this.style.display = 'none';
       document.getElementById('ytplayer').style.display = 'block';
     };
+
+    // Controla a intro e o fade do conteúdo
+    document.addEventListener('DOMContentLoaded', function () {
+      const intro = document.getElementById('intro');
+      const conteudo = document.getElementById('conteudo');
+
+      // Esconde conteúdo durante a intro
+      conteudo.setAttribute('data-hidden', 'true');
+      conteudo.style.display = 'none';
+
+      const DURACAO = 2100; // ms
+
+      setTimeout(() => {
+        conteudo.style.display = 'block';
+        conteudo.classList.add('mostrar');
+        conteudo.removeAttribute('data-hidden');
+
+        // fade da intro e remoção
+        intro.style.transition = 'opacity .45s ease';
+        intro.style.opacity = '0';
+        setTimeout(() => {
+          try { intro.remove(); } catch(e) { intro.style.display = 'none'; }
+        }, 500);
+      }, DURACAO);
+    });
   </script>
 </body>
 </html>
