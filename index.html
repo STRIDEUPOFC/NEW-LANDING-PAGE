@@ -18,14 +18,6 @@
       justify-content: center;
       z-index: 99999;
       overflow: hidden;
-      opacity: 1;
-      transition: opacity 0.6s ease;
-    }
-
-    #intro.hide {
-      opacity: 0;
-      pointer-events: none;
-      z-index: -1;
     }
 
     #intro img {
@@ -35,8 +27,8 @@
     }
 
     @keyframes expandLogo {
-      0% { opacity: 0; transform: scale(0.2); }
-      30% { opacity: 1; transform: scale(1); }
+      0% { opacity: 0; transform: scale(0.3); }
+      25% { opacity: 1; transform: scale(1); }
       70% { opacity: 1; transform: scale(3); }
       100% { opacity: 0; transform: scale(5); }
     }
@@ -44,7 +36,7 @@
     /* ======== CONTEÚDO PRINCIPAL ======== */
     #conteudo {
       opacity: 0;
-      transition: opacity 1s ease;
+      transition: opacity 1.2s ease;
     }
 
     #conteudo.mostrar {
@@ -54,7 +46,7 @@
 </head>
 <body>
 
-  <!-- TELA PRETA COM LOGO UP -->
+  <!-- INTRO -->
   <div id="intro">
     <img src="assets/img/up-logo.png" alt="UP Logo">
   </div>
@@ -181,10 +173,13 @@
       const intro = document.getElementById("intro");
       const conteudo = document.getElementById("conteudo");
 
+      // Após 2.1s remove a intro e mostra conteúdo
       setTimeout(() => {
-        intro.classList.add("hide");
+        intro.style.transition = "opacity 0.6s ease";
+        intro.style.opacity = "0";
         conteudo.classList.add("mostrar");
-      }, 2000); // 2s de intro antes de mostrar conteúdo
+        setTimeout(() => { intro.remove(); }, 800);
+      }, 2100);
     });
 
     // Thumb → vídeo
