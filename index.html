@@ -5,12 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Landing Page</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* ======== TELA PRETA DE INTRO ======== */
+    #intro {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      overflow: hidden;
+      animation: fadeOut 2s ease 2s forwards; /* some depois de 2s */
+    }
+
+    #intro img {
+      width: 120px;
+      opacity: 0;
+      animation: expandLogo 2s ease forwards;
+    }
+
+    @keyframes expandLogo {
+      0% { opacity: 0; transform: scale(0.2); }
+      30% { opacity: 1; transform: scale(1); }
+      70% { opacity: 1; transform: scale(3); }
+      100% { opacity: 0; transform: scale(5); }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    /* ======== CONTEÚDO PRINCIPAL ======== */
+    #conteudo {
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+
+    #conteudo.mostrar {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
-  <!-- Loader -->
-  <div id="loader">
-    <div class="spinner"></div>
-    <p>Carregando...</p>
+
+  <!-- TELA PRETA COM LOGO UP -->
+  <div id="intro">
+    <img src="assets/img/up-logo.png" alt="UP Logo">
   </div>
 
   <!-- CONTEÚDO PRINCIPAL -->
@@ -19,144 +62,129 @@
     <div class="image-block">
       <img src="assets/img/AAT1.png" alt="Seção 1" class="landing-image" draggable="false" />
 
-<div class="video-overlay">
-  <!-- Thumb HD -->
-<div id="thumb"
-     style="background: url('https://img.youtube.com/vi/EYYfj_U8FJs/maxresdefault.jpg') center center / cover no-repeat;
-            width: 100%; height: 100%; cursor: pointer; position: relative;">
-  <img src="assets/img/ICON.png" alt="Play" 
-       style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-              width: 32px; height: 32px; pointer-events: none;">
-</div>
-  <!-- Player escondido -->
- <iframe
-  id="ytplayer"
-  src="https://www.youtube.com/embed/EYYfj_U8FJs?autoplay=0&rel=0&modestbranding=1"
-  title="YouTube video"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-  style="display: none; width: 100%; height: 100%;">
-</iframe>
+      <div class="video-overlay">
+        <!-- Thumb HD -->
+        <div id="thumb"
+             style="background: url('https://img.youtube.com/vi/EYYfj_U8FJs/maxresdefault.jpg') center center / cover no-repeat;
+                    width: 100%; height: 100%; cursor: pointer; position: relative;">
+          <img src="assets/img/ICON.png" alt="Play" 
+               style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                      width: 32px; height: 32px; pointer-events: none;">
+        </div>
+        <!-- Player escondido -->
+        <iframe
+          id="ytplayer"
+          src="https://www.youtube.com/embed/EYYfj_U8FJs?autoplay=0&rel=0&modestbranding=1"
+          title="YouTube video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="display: none; width: 100%; height: 100%;">
+        </iframe>
+      </div>
 
-</div>
+      <!-- Botões invisíveis -->
+      <a href="https://strideupofc.myshopify.com/" class="invisible-link"></a>
+      <a href="https://www.youtube.com/@STRIDEUPOFC" class="invisible-youtube"></a>
+      <a href="https://www.instagram.com/strideofc/" class="invisible-insta"></a>
+      <a href="https://www.tiktok.com/@STRIDEUPOFC" class="invisible-whats"></a>
+    </div>
 
-  <!-- Botões invisíveis -->
-  <a href="https://strideupofc.myshopify.com/" class="invisible-link"></a>
-  <a href="https://www.youtube.com/@STRIDEUPOFC" class="invisible-youtube"></a>
-  <a href="https://www.instagram.com/strideofc/" class="invisible-insta"></a>
-  <a href="https://www.tiktok.com/@STRIDEUPOFC" class="invisible-whats"></a>
-</div>
     <!-- Imagem 2 -->
     <img src="assets/img/AA002.png" alt="Seção 2" class="landing-image" draggable="false"/>
 
     <!-- Imagem 3 com carrossel -->
-<!-- Imagem 3 com carrossel -->
-<div class="image-block">
-  <img src="assets/img/AA003.png.jpeg" alt="Seção 3" class="landing-image" draggable="false" />
+    <div class="image-block">
+      <img src="assets/img/AA003.png.jpeg" alt="Seção 3" class="landing-image" draggable="false" />
 
-  <div class="carousel-overlay" onwheel="this.scrollLeft += event.deltaY;">
-    <div class="carousel-inner">
-      <img src="assets/img/C1.PNG" alt="Cliente 1" class="carousel-img" />
-      <img src="assets/img/C2.png.PNG" alt="Cliente 2" class="carousel-img" />
-      <img src="assets/img/C3.png.PNG" alt="Cliente 3" class="carousel-img" />
+      <div class="carousel-overlay" onwheel="this.scrollLeft += event.deltaY;">
+        <div class="carousel-inner">
+          <img src="assets/img/C1.PNG" alt="Cliente 1" class="carousel-img" />
+          <img src="assets/img/C2.png.PNG" alt="Cliente 2" class="carousel-img" />
+          <img src="assets/img/C3.png.PNG" alt="Cliente 3" class="carousel-img" />
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div id="imgModal" class="modal" onclick="closeModal()">
+        <img id="modalImg" class="modal-content" />
+      </div>
     </div>
   </div>
 
+  <!-- BOTÃO WHATSAPP FIXO -->
+  <a href="https://wa.me/5567996540942?text=Olá%20StrideUp,%20quero%20fazer%20meu%20pedido%20agora." target="_blank" class="whatsapp-float">
+    <img src="assets/img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+    <span class="whatsapp-text">faça seu pedido por aqui</span>
+  </a>
 
-    <!-- Modal -->
-    <div id="imgModal" class="modal" onclick="closeModal()">
-      <img id="modalImg" class="modal-content" />
-    </div>
-  </div> <!-- fim do conteudo -->
-<!-- BOTÃO WHATSAPP FIXO -->
-<a href="https://wa.me/5567996540942?text=Olá%20StrideUp,%20quero%20fazer%20meu%20pedido%20agora." target="_blank" class="whatsapp-float">
-  <img src="assets/img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-  <span class="whatsapp-text">faça seu pedido por aqui</span>
-</a>
-
-<style>
-  .whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: #25D366;
-    color: #fff;
-    text-decoration: none;
-    padding: 15px 24px; /* AUMENTADO */
-    border-radius: 55px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px; /* AUMENTADO */
-    font-weight: 700; /* MAIS FORTE */
-    transition: all 0.25s ease;
-    z-index: 9999;
-  }
-
-  .whatsapp-float:hover {
-    background: #1ebe5d;
-    transform: translateY(-2px);
-  }
-
-  .whatsapp-icon {
-    width: 32px; /* MAIOR */
-    height: 32px;
-  }
-
-  .whatsapp-text {
-    white-space: nowrap;
-  }
-
-  @media (max-width: 600px) {
+  <style>
     .whatsapp-float {
-      padding: 12px 18px;
-      font-size: 14px;
-      gap: 10px;
-      bottom: 15px;
-      right: 15px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 24px;
+      border-radius: 55px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      z-index: 9999;
     }
-    .whatsapp-icon {
-      width: 28px;
-      height: 28px;
+
+    .whatsapp-float:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px);
     }
-  }
-</style>
 
+    .whatsapp-icon { width: 32px; height: 32px; }
 
-  <!-- Script -->
+    @media (max-width: 600px) {
+      .whatsapp-float {
+        padding: 12px 18px;
+        font-size: 14px;
+        gap: 10px;
+        bottom: 15px;
+        right: 15px;
+      }
+      .whatsapp-icon {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  </style>
+
   <script>
+    // Abrir e fechar modal do carrossel
     const modal = document.getElementById("imgModal");
     const modalImg = document.getElementById("modalImg");
-
     document.querySelectorAll(".carousel-img").forEach((img) => {
       img.addEventListener("click", () => {
         modalImg.src = img.src;
         modal.classList.add("open");
       });
     });
+    function closeModal() { modal.classList.remove("open"); }
 
-    function closeModal() {
-      modal.classList.remove("open");
-    }
-
-    // Loader: 2 segundos
-    document.addEventListener("DOMContentLoaded", () => {
-      const loader = document.getElementById("loader");
-      const conteudo = document.getElementById("conteudo");
-
+    // Efeito fade-in do conteúdo após intro
+    window.addEventListener("load", () => {
       setTimeout(() => {
-        loader.style.display = "none";
-        conteudo.style.display = "block";
-      }, 2000);
+        document.getElementById("conteudo").classList.add("mostrar");
+      }, 1800);
     });
-      // Substitui a thumb pelo vídeo ao clicar
-  document.getElementById('thumb').onclick = function() {
-    this.style.display = 'none';
-    document.getElementById('ytplayer').style.display = 'block';
-  };
+
+    // Thumb → vídeo
+    document.getElementById('thumb').onclick = function() {
+      this.style.display = 'none';
+      document.getElementById('ytplayer').style.display = 'block';
+    };
   </script>
 </body>
 </html>
