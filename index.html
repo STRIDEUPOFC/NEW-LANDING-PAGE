@@ -6,7 +6,7 @@
   <title>Landing Page</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
-    /* ======== TELA PRETA DE INTRO ======== */
+    /* ======== INTRO ======== */
     #intro {
       position: fixed;
       top: 0; left: 0;
@@ -18,7 +18,14 @@
       justify-content: center;
       z-index: 99999;
       overflow: hidden;
-      animation: fadeOut 2s ease 2s forwards; /* some depois de 2s */
+      opacity: 1;
+      transition: opacity 0.6s ease;
+    }
+
+    #intro.hide {
+      opacity: 0;
+      pointer-events: none;
+      z-index: -1;
     }
 
     #intro img {
@@ -34,14 +41,10 @@
       100% { opacity: 0; transform: scale(5); }
     }
 
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
-
     /* ======== CONTEÚDO PRINCIPAL ======== */
     #conteudo {
       opacity: 0;
-      transition: opacity 1.2s ease;
+      transition: opacity 1s ease;
     }
 
     #conteudo.mostrar {
@@ -53,7 +56,7 @@
 
   <!-- TELA PRETA COM LOGO UP -->
   <div id="intro">
-    <img src="assets/img/IMG_2852.png" alt="UP Logo">
+    <img src="assets/img/up-logo.png" alt="UP Logo">
   </div>
 
   <!-- CONTEÚDO PRINCIPAL -->
@@ -118,79 +121,77 @@
     <span class="whatsapp-text">faça seu pedido por aqui</span>
   </a>
 
-<style>
-  /* ======== TELA PRETA DE INTRO ======== */
-  #intro {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99999;
-    overflow: hidden;
-    opacity: 1;
-    transition: opacity 0.8s ease;
-  }
+  <style>
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 24px;
+      border-radius: 55px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      z-index: 9999;
+    }
 
-  #intro img {
-    width: 120px;
-    opacity: 0;
-    animation: expandLogo 2s ease forwards;
-  }
+    .whatsapp-float:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px);
+    }
 
-  @keyframes expandLogo {
-    0% { opacity: 0; transform: scale(0.2); }
-    30% { opacity: 1; transform: scale(1); }
-    70% { opacity: 1; transform: scale(3); }
-    100% { opacity: 0; transform: scale(5); }
-  }
+    .whatsapp-icon { width: 32px; height: 32px; }
 
-  /* ======== CONTEÚDO PRINCIPAL ======== */
-  #conteudo {
-    opacity: 0;
-    transition: opacity 1.2s ease;
-  }
+    @media (max-width: 600px) {
+      .whatsapp-float {
+        padding: 12px 18px;
+        font-size: 14px;
+        gap: 10px;
+        bottom: 15px;
+        right: 15px;
+      }
+      .whatsapp-icon {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  </style>
 
-  #conteudo.mostrar {
-    opacity: 1;
-  }
-</style>
-
-<script>
-  window.addEventListener("load", () => {
-    const intro = document.getElementById("intro");
-    const conteudo = document.getElementById("conteudo");
-
-    // Espera a animação do logo terminar
-    setTimeout(() => {
-      intro.style.opacity = "0";
-      // Após o fade out, remove a intro do fluxo
-      setTimeout(() => {
-        intro.style.display = "none";
-        conteudo.classList.add("mostrar");
-      }, 800);
-    }, 2000);
-  });
-
-  // Abrir modal do carrossel
-  const modal = document.getElementById("imgModal");
-  const modalImg = document.getElementById("modalImg");
-  document.querySelectorAll(".carousel-img").forEach((img) => {
-    img.addEventListener("click", () => {
-      modalImg.src = img.src;
-      modal.classList.add("open");
+  <script>
+    // Modal do carrossel
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    document.querySelectorAll(".carousel-img").forEach((img) => {
+      img.addEventListener("click", () => {
+        modalImg.src = img.src;
+        modal.classList.add("open");
+      });
     });
-  });
-  function closeModal() { modal.classList.remove("open"); }
+    function closeModal() { modal.classList.remove("open"); }
 
-  // Thumb → vídeo
-  document.getElementById('thumb').onclick = function() {
-    this.style.display = 'none';
-    document.getElementById('ytplayer').style.display = 'block';
-  };
-</script>
+    // Controle da intro + fade do conteúdo
+    window.addEventListener("load", () => {
+      const intro = document.getElementById("intro");
+      const conteudo = document.getElementById("conteudo");
+
+      setTimeout(() => {
+        intro.classList.add("hide");
+        conteudo.classList.add("mostrar");
+      }, 2000); // 2s de intro antes de mostrar conteúdo
+    });
+
+    // Thumb → vídeo
+    document.getElementById('thumb').onclick = function() {
+      this.style.display = 'none';
+      document.getElementById('ytplayer').style.display = 'block';
+    };
+  </script>
 </body>
 </html>
