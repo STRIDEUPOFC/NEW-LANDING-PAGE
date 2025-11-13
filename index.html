@@ -161,30 +161,35 @@
     }
   </style>
 
-  <script>
-    // Abrir e fechar modal do carrossel
-    const modal = document.getElementById("imgModal");
-    const modalImg = document.getElementById("modalImg");
-    document.querySelectorAll(".carousel-img").forEach((img) => {
-      img.addEventListener("click", () => {
-        modalImg.src = img.src;
-        modal.classList.add("open");
-      });
+<script>
+  // Abrir e fechar modal do carrossel
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  document.querySelectorAll(".carousel-img").forEach((img) => {
+    img.addEventListener("click", () => {
+      modalImg.src = img.src;
+      modal.classList.add("open");
     });
-    function closeModal() { modal.classList.remove("open"); }
+  });
+  function closeModal() { modal.classList.remove("open"); }
 
-    // Efeito fade-in do conteúdo após intro
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.getElementById("conteudo").classList.add("mostrar");
-      }, 1800);
-    });
+  // Quando a página carregar
+  window.addEventListener("load", () => {
+    const intro = document.getElementById("intro");
+    const conteudo = document.getElementById("conteudo");
 
-    // Thumb → vídeo
-    document.getElementById('thumb').onclick = function() {
-      this.style.display = 'none';
-      document.getElementById('ytplayer').style.display = 'block';
-    };
-  </script>
+    // Espera a animação do logo terminar
+    setTimeout(() => {
+      intro.style.display = "none"; // remove a tela preta completamente
+      conteudo.classList.add("mostrar"); // faz o conteúdo aparecer
+    }, 2000); // mesmo tempo do fadeOut
+  });
+
+  // Thumb → vídeo
+  document.getElementById('thumb').onclick = function() {
+    this.style.display = 'none';
+    document.getElementById('ytplayer').style.display = 'block';
+  };
+</script>
 </body>
 </html>
