@@ -10,6 +10,36 @@
        INTRO UP (substitui loader)
        =========================== -->
   <style>
+    /* ====== AJUSTE PARA DESKTOP (FUNDO BRANCO + CONTEÚDO CENTRALIZADO) ====== */
+@media (min-width: 900px) {
+
+  /* Fundo da página */
+  body {
+    background: #ffffff;
+  }
+
+  /* Limita largura e centraliza tudo */
+  #conteudo {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Garante que imagens não deformem */
+  .landing-image,
+  .image-block img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Deixa o bloco das imagens mais organizado */
+  .image-block {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
     /* Intro: tela preta com logo expandindo */
     #intro {
       position: fixed;
