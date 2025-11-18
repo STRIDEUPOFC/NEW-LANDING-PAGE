@@ -9,7 +9,7 @@
   <!-- ===========================
        INTRO UP (substitui loader)
        =========================== -->
- <style>
+<style>
     /* A imagem 1 vira container */
 .image1-wrapper {
   position: relative;
@@ -28,22 +28,22 @@
 .button-hitbox-wrapper a {
   pointer-events: auto;
 }
-
   
-/* ===== FADE SUAVE DO CONTEÚDO PARA AS LATERAIS ===== */
+/* ===== FADE SOMBREADO PREMIUM ===== */
 @media (min-width: 900px) {
 
   body {
     background: #ffffff;
   }
 
+  /* Área que envolve tudo */
   #conteudo {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
 
-    /* 🔥 FIX do bug dos cantos */
-    overflow: hidden;
+    /* 🔥 Mantém tudo limpo */
+    background: #fff;
   }
 
   #conteudo::before,
@@ -53,31 +53,33 @@
     top: 0;
     bottom: 0;
     width: 120px;
+    z-index: 5;
     pointer-events: none;
-    z-index: 2;
 
-    /* 🔥 FIX adicional */
+    /* 🔥 O fade agora fica DENTRO e não vaza pros cantos */
     background-clip: padding-box;
   }
 
+  /* Fade interno à esquerda */
   #conteudo::before {
-    left: -120px;
+    left: 0;
     background: linear-gradient(
       to right,
-      rgba(0,0,0,0.12) 0%,
-      rgba(0,0,0,0.06) 40%,
-      rgba(0,0,0,0.02) 70%,
+      rgba(0,0,0,0.14) 0%,
+      rgba(0,0,0,0.10) 35%,
+      rgba(0,0,0,0.05) 60%,
       rgba(0,0,0,0) 100%
     );
   }
 
+  /* Fade interno à direita */
   #conteudo::after {
-    right: -120px;
+    right: 0;
     background: linear-gradient(
       to left,
-      rgba(0,0,0,0.12) 0%,
-      rgba(0,0,0,0.06) 40%,
-      rgba(0,0,0,0.02) 70%,
+      rgba(0,0,0,0.14) 0%,
+      rgba(0,0,0,0.10) 35%,
+      rgba(0,0,0,0.05) 60%,
       rgba(0,0,0,0) 100%
     );
   }
@@ -138,7 +140,7 @@
 }
 
 
-/* Intro preta */
+/* Intro da logo */
 #intro {
   position: fixed;
   inset: 0;
@@ -178,9 +180,7 @@
   display: none !important;
 }
 </style>
-
 </head>
-
 <body>
   <!-- INTRO UP -->
   <div id="intro" aria-hidden="true">
