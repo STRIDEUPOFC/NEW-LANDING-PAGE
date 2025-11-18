@@ -47,16 +47,17 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 90px;    /* intensidade */
+    width: 90px; /* intensidade */
     pointer-events: none;
     z-index: 5;
   }
 
-  /* esquerda — AGORA APARECE */
+  /* AGORA: esquerda virou direita */
   .fade-img::before {
-    left: 0;
+    right: 0;
+    transform: translateX(100%);
     background: linear-gradient(
-      to right,
+      to left,
       rgba(0,0,0,0.18) 0%,
       rgba(0,0,0,0.10) 40%,
       rgba(0,0,0,0.04) 70%,
@@ -64,11 +65,12 @@
     );
   }
 
-  /* direita — AGORA APARECE */
+  /* AGORA: direita virou esquerda */
   .fade-img::after {
-    right: 0;
+    left: 0;
+    transform: translateX(-100%);
     background: linear-gradient(
-      to left,
+      to right,
       rgba(0,0,0,0.18) 0%,
       rgba(0,0,0,0.10) 40%,
       rgba(0,0,0,0.04) 70%,
