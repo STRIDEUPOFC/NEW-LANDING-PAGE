@@ -10,16 +10,13 @@
        INTRO UP (substitui loader)
        =========================== -->
 <style>
-  /* Ajuste do tamanho da imagem AA003 + carrossel no DESKTOP */
-@media (min-width: 900px) {
-
-  .image-block {
-    max-width: 950px;   /* ajuste como quiser */
-    margin: 0 auto;
-    transform: scale(0.90); /* 90% do tamanho original */
-    transform-origin: center top;
+/* Reduz o tamanho das imagens do carrossel apenas no PC */
+@media (min-width: 1024px) {
+  .bape-card .bape-img-wrapper img {
+    max-height: 260px !important; /* ajuste à vontade (200–300px) */
+    width: auto !important;
+    object-fit: contain !important;
   }
-
 }
 
     /* A imagem 1 vira container */
