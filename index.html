@@ -31,62 +31,53 @@
   
 /* ===== FADE SOMBREADO PREMIUM ===== */
 /* ===== FADE SOMBREADO REAL EM VOLTA DO CONTEÚDO ===== */
+/* ===== FADE EM VOLTA DAS IMAGENS (PC APENAS) ===== */
 @media (min-width: 900px) {
 
-  body {
-    background: #ffffff;
-  }
-
-  /* 🔥 IMPORTANTE: garante altura para o fade aparecer */
-  #conteudo {
+  .fade-img {
     position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    background: #fff;
-    padding-left: 40px;   /* espaçamento interno para o fade não colar nas imagens */
-    padding-right: 40px;
-    box-sizing: content-box;
+    display: block;
+    width: 100%;
   }
 
-  /* Fade interno */
-  #conteudo::before,
-  #conteudo::after {
+  /* fade lateral premium */
+  .fade-img::before,
+  .fade-img::after {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 80px;
+    width: 90px;  /* intensidade */
     pointer-events: none;
-    z-index: 10;
+    z-index: 5;
   }
 
-  /* Fade à esquerda */
-  #conteudo::before {
+  /* esquerda */
+  .fade-img::before {
     left: 0;
-    transform: translateX(-100%); 
+    transform: translateX(-100%);
     background: linear-gradient(
       to right,
-      rgba(0,0,0,0.15) 0%,
-      rgba(0,0,0,0.08) 40%,
-      rgba(0,0,0,0.03) 70%,
+      rgba(0,0,0,0.18) 0%,
+      rgba(0,0,0,0.10) 40%,
+      rgba(0,0,0,0.04) 70%,
       rgba(0,0,0,0) 100%
     );
   }
 
-  /* Fade à direita */
-  #conteudo::after {
+  /* direita */
+  .fade-img::after {
     right: 0;
     transform: translateX(100%);
     background: linear-gradient(
       to left,
-      rgba(0,0,0,0.15) 0%,
-      rgba(0,0,0,0.08) 40%,
-      rgba(0,0,0,0.03) 70%,
+      rgba(0,0,0,0.18) 0%,
+      rgba(0,0,0,0.10) 40%,
+      rgba(0,0,0,0.04) 70%,
       rgba(0,0,0,0) 100%
     );
   }
 }
-
 
 /* ===== IMAGEM 2 COMO CONTAINER ===== */
 .img2-wrapper {
