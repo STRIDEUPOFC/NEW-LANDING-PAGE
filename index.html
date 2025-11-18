@@ -30,56 +30,58 @@
 }
   
 /* ===== FADE SOMBREADO PREMIUM ===== */
+/* ===== FADE SOMBREADO REAL EM VOLTA DO CONTEÚDO ===== */
 @media (min-width: 900px) {
 
   body {
     background: #ffffff;
   }
 
-  /* Área que envolve tudo */
+  /* 🔥 IMPORTANTE: garante altura para o fade aparecer */
   #conteudo {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-
-    /* 🔥 Mantém tudo limpo */
     background: #fff;
+    padding-left: 40px;   /* espaçamento interno para o fade não colar nas imagens */
+    padding-right: 40px;
+    box-sizing: content-box;
   }
 
+  /* Fade interno */
   #conteudo::before,
   #conteudo::after {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 120px;
-    z-index: 5;
+    width: 80px;
     pointer-events: none;
-
-    /* 🔥 O fade agora fica DENTRO e não vaza pros cantos */
-    background-clip: padding-box;
+    z-index: 10;
   }
 
-  /* Fade interno à esquerda */
+  /* Fade à esquerda */
   #conteudo::before {
     left: 0;
+    transform: translateX(-100%); 
     background: linear-gradient(
       to right,
-      rgba(0,0,0,0.14) 0%,
-      rgba(0,0,0,0.10) 35%,
-      rgba(0,0,0,0.05) 60%,
+      rgba(0,0,0,0.15) 0%,
+      rgba(0,0,0,0.08) 40%,
+      rgba(0,0,0,0.03) 70%,
       rgba(0,0,0,0) 100%
     );
   }
 
-  /* Fade interno à direita */
+  /* Fade à direita */
   #conteudo::after {
     right: 0;
+    transform: translateX(100%);
     background: linear-gradient(
       to left,
-      rgba(0,0,0,0.14) 0%,
-      rgba(0,0,0,0.10) 35%,
-      rgba(0,0,0,0.05) 60%,
+      rgba(0,0,0,0.15) 0%,
+      rgba(0,0,0,0.08) 40%,
+      rgba(0,0,0,0.03) 70%,
       rgba(0,0,0,0) 100%
     );
   }
