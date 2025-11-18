@@ -47,15 +47,14 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 90px;  /* intensidade */
+    width: 90px;    /* intensidade */
     pointer-events: none;
     z-index: 5;
   }
 
-  /* esquerda (corrigido) */
+  /* esquerda — AGORA APARECE */
   .fade-img::before {
     left: 0;
-    transform: translateX(0);
     background: linear-gradient(
       to right,
       rgba(0,0,0,0.18) 0%,
@@ -65,10 +64,9 @@
     );
   }
 
-  /* direita (corrigido) */
+  /* direita — AGORA APARECE */
   .fade-img::after {
     right: 0;
-    transform: translateX(0);
     background: linear-gradient(
       to left,
       rgba(0,0,0,0.18) 0%,
