@@ -1,3 +1,12 @@
+/* Reduz o tamanho das imagens do carrossel apenas no desktop */
+@media (min-width: 1024px) {
+  .carousel-img {
+    width: 140px !important;
+    height: 230px !important;
+    object-fit: cover;
+  }
+}
+
 .video-overlay {
   position: absolute;
   top: 0; 
