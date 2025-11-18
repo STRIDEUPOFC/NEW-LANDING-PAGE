@@ -40,39 +40,38 @@
     width: 100%;
   }
 
-  /* fade lateral premium */
   .fade-img::before,
   .fade-img::after {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 90px;
+    width: 110px; /* aumentei um pouco para realçar */
     pointer-events: none;
     z-index: 5;
   }
 
-  /* lado direito – agora branco → cinza */
+  /* Direita – branco → cinza forte */
   .fade-img::before {
     right: 0;
     transform: translateX(100%);
     background: linear-gradient(
       to left,
-      rgba(255,255,255,0) 0%,      /* branco transparente */
-      rgba(200,200,200,0.10) 40%,  /* cinza leve */
-      rgba(170,170,170,0.18) 100%  /* cinza mais forte */
+      rgba(255,255,255,0) 0%,        /* branco transparente */
+      rgba(130,130,130,0.35) 40%,    /* cinza bem marcado */
+      rgba(60,60,60,0.55) 100%       /* cinza forte real */
     );
   }
 
-  /* lado esquerdo – agora branco → cinza */
+  /* Esquerda – branco → cinza forte */
   .fade-img::after {
     left: 0;
     transform: translateX(-100%);
     background: linear-gradient(
       to right,
-      rgba(255,255,255,0) 0%,      /* branco transparente */
-      rgba(200,200,200,0.10) 40%,  /* cinza suave */
-      rgba(170,170,170,0.18) 100%  /* cinza mais forte */
+      rgba(255,255,255,0) 0%,        /* branco transparente */
+      rgba(130,130,130,0.35) 40%,    /* cinza bem marcado */
+      rgba(60,60,60,0.55) 100%       /* cinza forte */
     );
   }
 }
