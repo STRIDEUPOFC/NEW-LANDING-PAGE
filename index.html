@@ -10,6 +10,26 @@
        INTRO UP (substitui loader)
        =========================== -->
   <style>
+    /* A imagem 1 vira container */
+.image1-wrapper {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+/* Os botões ficam PRESOS dentro dela */
+.button-hitbox-wrapper {
+  position: absolute;
+  inset: 0;        /* cobre exatamente só a imagem */
+  pointer-events: none; 
+  z-index: 20;     /* em cima da imagem 1 */
+}
+
+.button-hitbox-wrapper a {
+  pointer-events: auto; /* só os links clicam */
+}
+
+  
     /* ===== FADE SUAVE DO CONTEÚDO PARA AS LATERAIS ===== */
 @media (min-width: 900px) {
 
