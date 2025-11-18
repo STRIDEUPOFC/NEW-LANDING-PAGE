@@ -9,7 +9,7 @@
   <!-- ===========================
        INTRO UP (substitui loader)
        =========================== -->
-  <style>
+ <style>
     /* A imagem 1 vira container */
 .image1-wrapper {
   position: relative;
@@ -20,55 +20,57 @@
 /* Os botões ficam PRESOS dentro dela */
 .button-hitbox-wrapper {
   position: absolute;
-  inset: 0;        /* cobre exatamente só a imagem */
+  inset: 0;
   pointer-events: none; 
-  z-index: 20;     /* em cima da imagem 1 */
+  z-index: 20;
 }
 
 .button-hitbox-wrapper a {
-  pointer-events: auto; /* só os links clicam */
+  pointer-events: auto;
 }
 
   
-    /* ===== FADE SUAVE DO CONTEÚDO PARA AS LATERAIS ===== */
+/* ===== FADE SUAVE DO CONTEÚDO PARA AS LATERAIS ===== */
 @media (min-width: 900px) {
 
   body {
     background: #ffffff;
   }
 
-  /* Área que envolve tudo */
   #conteudo {
     position: relative;
-    max-width: 1200px; /* já está usando isso */
+    max-width: 1200px;
     margin: 0 auto;
+
+    /* 🔥 FIX do bug dos cantos */
+    overflow: hidden;
   }
 
-  /* Sombras laterais premium */
   #conteudo::before,
   #conteudo::after {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 120px;               /* intensidade do fade */
-    pointer-events: none;       /* não atrapalha clique */
+    width: 120px;
+    pointer-events: none;
     z-index: 2;
+
+    /* 🔥 FIX adicional */
+    background-clip: padding-box;
   }
 
-  /* Fade à esquerda */
   #conteudo::before {
     left: -120px;
     background: linear-gradient(
       to right,
-      rgba(0,0,0,0.12) 0%,       /* escurece um pouco */
+      rgba(0,0,0,0.12) 0%,
       rgba(0,0,0,0.06) 40%,
       rgba(0,0,0,0.02) 70%,
-      rgba(0,0,0,0) 100%         /* some suavemente */
+      rgba(0,0,0,0) 100%
     );
   }
 
-  /* Fade à direita */
   #conteudo::after {
     right: -120px;
     background: linear-gradient(
@@ -81,7 +83,8 @@
   }
 }
 
-    /* ===== IMAGEM 2 COMO CONTAINER ===== */
+
+/* ===== IMAGEM 2 COMO CONTAINER ===== */
 .img2-wrapper {
   position: relative;
   width: 100%;
@@ -91,18 +94,15 @@
 /* ===== VÍDEO FIXO EM CIMA DA IMAGEM 2 ===== */
 .video-fixed-over-img2 {
   position: absolute;
-
-  top: 9%;          /* 🔥 exatamente o que você pediu */
+  top: 9%;
   left: 50%;
   transform: translateX(-50%);
-
-  width: 85%;       /* ajuste fino se quiser maior/menor */
+  width: 85%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 10px; /* opcional, pra ficar premium */
+  border-radius: 10px;
 }
 
-/* Thumb e iframe dentro do bloco */
 .video-fixed-over-img2 iframe,
 .video-fixed-over-img2 #thumb {
   width: 100%;
@@ -110,21 +110,19 @@
   display: block;
 }
 
-    /* ====== AJUSTE PARA DESKTOP (FUNDO BRANCO + CONTEÚDO CENTRALIZADO) ====== */
+
+/* ===== AJUSTE PARA DESKTOP ===== */
 @media (min-width: 900px) {
 
-  /* Fundo da página */
   body {
     background: #ffffff;
   }
 
-  /* Limita largura e centraliza tudo */
   #conteudo {
     max-width: 1200px;
     margin: 0 auto;
   }
 
-  /* Garante que imagens não deformem */
   .landing-image,
   .image-block img {
     width: 100%;
@@ -133,54 +131,54 @@
     display: block;
   }
 
-  /* Deixa o bloco das imagens mais organizado */
   .image-block {
     max-width: 1200px;
     margin: 0 auto;
   }
 }
 
-    /* Intro: tela preta com logo expandindo */
-    #intro {
-      position: fixed;
-      inset: 0;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 99999;
-      overflow: hidden;
-    }
 
-    #intro img {
-      width: 140px;
-      max-width: 40vw;
-      opacity: 0;
-      animation: introExpand 2s cubic-bezier(.22,.9,.36,1) forwards;
-      will-change: transform, opacity;
-    }
+/* Intro preta */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  overflow: hidden;
+}
 
-    @keyframes introExpand {
-      0%   { opacity: 0; transform: scale(.25); }
-      25%  { opacity: 1; transform: scale(1); }
-      65%  { opacity: 1; transform: scale(3); }
-      100% { opacity: 0; transform: scale(4); }
-    }
+#intro img {
+  width: 140px;
+  max-width: 40vw;
+  opacity: 0;
+  animation: introExpand 2s cubic-bezier(.22,.9,.36,1) forwards;
+  will-change: transform, opacity;
+}
 
-    /* Fade do conteúdo após intro */
-    #conteudo {
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
+@keyframes introExpand {
+  0%   { opacity: 0; transform: scale(.25); }
+  25%  { opacity: 1; transform: scale(1); }
+  65%  { opacity: 1; transform: scale(3); }
+  100% { opacity: 0; transform: scale(4); }
+}
 
-    #conteudo.mostrar {
-      opacity: 1;
-    }
+#conteudo {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
 
-    #conteudo[data-hidden="true"] {
-      display: none !important;
-    }
-  </style>
+#conteudo.mostrar {
+  opacity: 1;
+}
+
+#conteudo[data-hidden="true"] {
+  display: none !important;
+}
+</style>
+
 </head>
 
 <body>
