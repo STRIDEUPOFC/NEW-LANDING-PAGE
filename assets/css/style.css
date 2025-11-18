@@ -1,28 +1,21 @@
-/* Reduz o tamanho das imagens do carrossel apenas no desktop */
-/* Corrige o carrossel no desktop */
+/* Ajuste do carrossel no desktop */
 @media (min-width: 1024px) {
 
-  /* Impede que o carrossel escale junto com a imagem gigante */
+  /* Carrossel centralizado e com largura fixa */
   .carousel-overlay {
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 600px; /* largura controlada, não expande mais */
+    width: 620px; /* ligeiramente maior para respirar mais */
     justify-content: center;
+    padding: 10px 0;
   }
 
+  /* Imagens com tamanho ideal (médio+) */
   .carousel-img {
-    width: 220px !important;
-    height: 290px !important;
-    object-fit: cover;
-  }
-}
-
-@media (min-width: 1024px) {
-  .carousel-img {
-    width: 140px !important;
-    height: 230px !important;
+    width: 180px !important;   /* era 140px pequeno demais — agora no ponto */
+    height: 260px !important;  /* proporcionalmente melhor */
     object-fit: cover;
   }
 }
