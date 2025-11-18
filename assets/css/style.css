@@ -1,24 +1,3 @@
-/* Ajuste do carrossel no desktop */
-@media (min-width: 1024px) {
-
-  /* Carrossel centralizado e com largura fixa */
-  .carousel-overlay {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 620px; /* ligeiramente maior para respirar mais */
-    justify-content: center;
-    padding: 10px 0;
-  }
-
-  /* Imagens com tamanho ideal (médio+) */
-  .carousel-img {
-    width: 180px !important;   /* era 140px pequeno demais — agora no ponto */
-    height: 260px !important;  /* proporcionalmente melhor */
-    object-fit: cover;
-  }
-}
 
 .video-overlay {
   position: absolute;
